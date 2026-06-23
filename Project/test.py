@@ -1,6 +1,11 @@
 import pandas as pd
 import streamlit as st
 import plotly.express as px
+import os
+import pandas as pd
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(os.path.join(BASE_DIR, "project", "pokemon_gen1_to_gen4.csv"))
 
 # statstic 1: display pokemon stats
 pokemon_df = pd.read_csv("C:/Users/Ksing/OneDrive/Documents/SUNY_POLY_GRAD/DSA_506_Visualization_Comm/Week_4_Dashboards/Project/pokemon_gen1_to_gen4.csv")
