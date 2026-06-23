@@ -5,10 +5,9 @@ import os
 import pandas as pd
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-df = pd.read_csv(os.path.join(BASE_DIR, "pokemon_gen1_to_gen4.csv"))
 
 # statstic 1: display pokemon stats
-pokemon_df = pd.read_csv("C:/Users/Ksing/OneDrive/Documents/SUNY_POLY_GRAD/DSA_506_Visualization_Comm/Week_4_Dashboards/Project/pokemon_gen1_to_gen4.csv")
+pokemon_df = pd.read_csv(os.path.join(BASE_DIR, "pokemon_gen1_to_gen4.csv"))
 # print(pokemon_df.head())
 
 # statistic 2: total pokemon per generation vs generation
@@ -93,8 +92,10 @@ average_bst_by_type = pd.DataFrame(rows)
 # -----------------------------
 @st.cache_data
 def load_data():
-    pokemon_df = pd.read_csv("C:/Users/Ksing/OneDrive/Documents/SUNY_POLY_GRAD/DSA_506_Visualization_Comm/Week_4_Dashboards/Project/pokemon_gen1_to_gen4.csv")
-
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# statstic 1: display pokemon stats
+    pokemon_df = pd.read_csv(os.path.join(BASE_DIR, "pokemon_gen1_to_gen4.csv"))
+    
     pokemon_df.columns = pokemon_df.columns.str.strip()
 
     stat_cols = ["HP", "Atk", "Def", "SpA", "SpD", "Spe", "Total", "generation", "national_dex"]
